@@ -1,0 +1,47 @@
+﻿@model  MVCSecond.Models.Users
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>&nbsp;</h2>
+@using (Html.BeginForm())
+{
+    <br />
+    <table>
+        <tr>
+
+            <td>Name</td>
+            <td>@Html.TextBoxFor(x => x.Name, new { @class = "form-control" })</td>
+            <td style="padding-top:22px"> @Html.ValidationMessageFor(x => x.Name, "", new { @class = "label label-danger" })<br /></td>
+
+        </tr>
+
+        <tr>
+            <td>Surname </td>
+            <td>@Html.TextBoxFor(x => x.Surname, new { @class = "form-control" })</td>
+            <td style="padding-top:22px">@Html.ValidationMessageFor(x => x.Surname, "", new { @class = "label label-danger" })<br /></td>
+
+        </tr>
+
+        <tr>
+            <td>Email </td>
+            <td>@Html.TextBoxFor(x => x.Email, new { @class = "form-control" })</td>
+            <td style="padding-top:22px">@Html.ValidationMessageFor(x => x.Email, "", new { @class = "label label-danger" })<br /></td>
+        </tr>
+        <tr>
+            <td>Password </td>
+            <td>@Html.PasswordFor(x => x.Password, new { @class = "form-control" })</td>
+            <td style="padding-top:22px">@Html.ValidationMessageFor(x => x.Password, "", new { @class = "label label-danger" })<br /></td>
+        </tr>
+        <tr>
+            <td>Password confirm </td>
+            <td>@Html.Password("PasswordConfirm", "",new { @class = "form-control" }) </td>
+            <td style="padding-top:22px">@Html.ValidationMessage("PasswordConfirm", "", new { @class = "label label-danger" })<br /></td>
+        </tr>
+       
+        <tr>
+            <td>
+            <td><input class="btn btn-info" id="inputdefault" type="submit" value="Click"></td>
+        </tr>
+    </table>
+}

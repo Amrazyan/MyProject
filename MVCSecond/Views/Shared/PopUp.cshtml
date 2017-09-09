@@ -1,0 +1,102 @@
+﻿@model  MVCSecond.Models.AllModel
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+
+
+
+<form @*action="Home/Updte" method="post"*@ id="send">
+
+    <div class="modal fade" id="loginmodal">
+
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Ավանդ</h4>
+                </div>
+
+                <div class="modal-body">
+                    <table>
+
+                        <tr>
+                            <td>Բանկ</td>
+                            <td>@Html.DropDownList("bank", null, new { @class = "btn btn-default dropdown-toggle" })</td>
+                        </tr>
+                        <tr>
+                            <td>Ավանդատեսակ</td>
+                            <td>@Html.DropDownList("avandtype", null, new { @class = "btn btn-default dropdown-toggle" })</td>
+                        </tr>
+                        <tr>
+                            <td>Գումար</td>
+                           
+                            <td><input class="form-control" name="prce" id="prce" type="number" autocomplete="off"><br /></td>
+                            
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>@Html.ValidationMessage("prce")</td>
+                        </tr>
+                    </table>
+
+                </div>
+
+                <div class="modal-footer">
+
+
+                    <input type="button" id="bttn" class="btn btn-default" value="ADD" />
+                    <button class="btn btn-danger" data-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</form>
+
+@section scripts
+    {
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+}
+
+<script>
+    $(document).ready(function () {
+        $("#bttn").click(function () {
+            debugger
+
+            var testData = {
+
+                'prce': $("#prce").val(),
+                'bank': $("#bank").val(),
+                'avandtype': $("#avandtype").val()
+                           };
+            $('#loginmodal').modal('toggle');
+
+                    $.ajax({
+
+
+
+                           url: '/Home/Updte',
+                        type: "POST",
+                        data: JSON.stringify(testData),
+
+                        contentType: "application/json",
+                        dataType: "html",
+
+                        success: function (data) {
+                            $('#changed').html(data);
+                        },
+                        error: function () {
+                            alert("Must be a number");
+                        }
+                    });
+                    return false;
+            });
+    })
+
+</script>

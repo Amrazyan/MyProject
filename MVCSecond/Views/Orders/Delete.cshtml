@@ -1,0 +1,72 @@
+﻿@model MVCSecond.Models.Orders
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>Orders</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.order_date)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.order_date)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Avand.AvandName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Avand.AvandName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Banks.BankName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Banks.BankName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Users.Name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Users.Name)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>

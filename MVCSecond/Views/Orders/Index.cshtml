@@ -1,0 +1,107 @@
+﻿@model IEnumerable<MVCSecond.Models.Orders>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/Menu.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <br />
+@using (Html.BeginForm())
+{
+
+
+   
+    <table style="float:left">
+        <tr>
+
+
+         
+            <td>
+             
+                <div class="inner-addon left-addon">
+                   <input type="text" class="form-control" name="Search" id="Search" title="Search by Name,Bank,Type" />
+                </div>
+            </td>
+            <td><input class="btn btn-info" id="inputdefault" type="submit" value="Search"></td>
+        </tr>
+
+    </table>
+
+    <br />
+}
+@using (Html.BeginForm())
+{
+    <table style="float:right">
+        <tr>
+            <td><input class="btn btn-info" id="inputdefault1" type="submit" value="Search"></td>
+            <td>
+                <input type="text" class="form-control" style="width:80px;font-size:12px;" name="fromm" id="from" />
+            </td>
+            <td>-</td>
+            <td>
+                <input type="text" class="form-control" style="width:80px;font-size:12px;" name="to" id="to" />
+            </td>
+        </tr>
+    </table>
+}
+    <br />
+    <br />
+   
+    <table class="mytable ">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.order_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Avand.AvandName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Banks.BankName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Users.Name)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.order_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Avand.AvandName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Banks.BankName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Users.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

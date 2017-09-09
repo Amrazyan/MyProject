@@ -1,0 +1,66 @@
+﻿@model MVCSecond.Models.Orders
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Orders</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.order_date)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.order_date)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Avand.AvandName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Avand.AvandName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Banks.BankName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Banks.BankName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Users.Name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Users.Name)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

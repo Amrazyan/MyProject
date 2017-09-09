@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@model MVCSecond.Models.Users
+
+<h2>&nbsp;</h2>
+<h3 style="color:green">
+    @Session["suc"]
+</h3>
+
+   
+@{
+    Session.Clear();
+}
+
+@using (Html.BeginForm())
+{
+
+
+    <br />
+    <table>
+        <tr>
+            <td>Login</td>          
+            <td>@Html.TextBox("Email", "", new { @class = "form-control" })</td>
+        </tr>
+
+        <tr>
+            <td>Password </td>                     
+            <td>@Html.Password("Password", "", new { @class = "form-control" })</td>                 
+        </tr>
+        <tr>
+            <td></td>
+            <td>@Html.ValidationMessage("Password", new { @class = "label label-danger" })<br /></td> 
+        </tr>
+        <tr>
+            <td></td>
+            <td><input class="btn btn-info" id="inputdefault" type="submit" value="Click"></td>
+        </tr>
+    </table>
+   
+
+}

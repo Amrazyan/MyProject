@@ -1,0 +1,29 @@
+﻿@model IEnumerable<MVCSecond.Models.AllModel>
+  
+<table class="table table-responsive">
+
+
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Bank)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Info)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.Bank!=null)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bank)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Info)
+            </td>
+        </tr>
+        }
+    }
+</table>
