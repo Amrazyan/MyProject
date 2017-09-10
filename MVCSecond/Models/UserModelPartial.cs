@@ -21,7 +21,7 @@ namespace MVCSecond.Models
         [Required(ErrorMessage = "Type a Surname")]
         public string Surname { get; set; }
         [Required(ErrorMessage = "Type a Email")]
-        [RegularExpression(@"(?i)\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b", ErrorMessage = "Անընդունելի գրելաձև")]
+        [RegularExpression(@"(?i)\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b", ErrorMessage = "Unacceptable writing")]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Write a password")]

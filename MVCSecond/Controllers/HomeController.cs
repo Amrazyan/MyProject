@@ -166,7 +166,7 @@ namespace MVCSecond.Views.Home
 
                 if (db.Users.ToList().Exists(u => u.Email == model.Email))
                 {
-                    ModelState.AddModelError("Email", "Этот майл уже исползуется ");
+                    ModelState.AddModelError("Email", "Тhis email is already in use ");
                 }
                 else
                 {
