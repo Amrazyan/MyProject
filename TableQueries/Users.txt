@@ -1,0 +1,13 @@
+CREATE TABLE Users
+(
+Id int identity(1,1) NOT NULL,
+
+
+Name nvarchar(50) not null,
+Surname nvarchar(50) not null,
+Email nvarchar(50) not null,
+Password nvarchar(50) not null,
+
+ CONSTRAINT PK_User_1 PRIMARY KEY CLUSTERED (Id ASC)
+
+);
