@@ -1,0 +1,50 @@
+CREATE TABLE Avand
+(
+Id int identity(1,1) NOT NULL,
+
+AvandName nvarchar(50) not null,
+[Percent] int not null,
+
+CONSTRAINT PK_Avand PRIMARY KEY CLUSTERED (Id ASC)
+);
+
+
+CREATE TABLE Banks
+(
+Id int identity(1,1) NOT NULL,
+BankName nvarchar(50) not null,
+Information nvarchar(max) null,
+
+CONSTRAINT PK_Banks PRIMARY KEY CLUSTERED (Id ASC)
+);
+
+
+CREATE TABLE Users
+(
+Id int identity(1,1) NOT NULL,
+
+
+Name nvarchar(50) not null,
+Surname nvarchar(50) not null,
+Email nvarchar(50) not null,
+Password nvarchar(50) not null,
+
+ CONSTRAINT PK_User_1 PRIMARY KEY CLUSTERED (Id ASC)
+
+);
+
+CREATE TABLE Orders
+(
+Id int identity(1,1) NOT NULL primary key,
+
+order_date  date null,
+user_id int not null,
+avand_id int not null,
+bank_id int not null,
+Price int null,
+
+CONSTRAINT FK_Orders_User FOREIGN KEY (user_id) REFERENCES Users(Id),
+CONSTRAINT FK_Orders_Avand FOREIGN KEY (avand_id) REFERENCES Avand(Id),
+CONSTRAINT FK_Orders_Banks FOREIGN KEY (bank_id) REFERENCES Banks(Id)
+
+);

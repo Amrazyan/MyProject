@@ -1,8 +1,0 @@
-CREATE TABLE Banks
-(
-Id int identity(1,1) NOT NULL,
-BankName nvarchar(50) not null,
-Information nvarchar(max) null,
-
-CONSTRAINT PK_Banks PRIMARY KEY CLUSTERED (Id ASC)
-);
