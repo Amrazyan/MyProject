@@ -10,7 +10,7 @@ using MVCSecond.Models;
 
 namespace MVCSecond.Controllers
 {
-    public class OrdersController : Controller
+    public class AdminController : Controller
     {
         private dasDBEntities1 db = new dasDBEntities1();
 
