@@ -1,4 +1,4 @@
-CREATE TABLE Avand
+﻿CREATE TABLE Avand
 (
 Id int identity(1,1) NOT NULL,
 
@@ -8,6 +8,8 @@ AvandName nvarchar(50) not null,
 CONSTRAINT PK_Avand PRIMARY KEY CLUSTERED (Id ASC)
 );
 
+insert into Avand (AvandName,[Percent])
+values ('Ընտանեկան',12),('Խնայողական',9),('Բիզնես',11)
 
 CREATE TABLE Banks
 (
@@ -18,6 +20,8 @@ Information nvarchar(max) null,
 CONSTRAINT PK_Banks PRIMARY KEY CLUSTERED (Id ASC)
 );
 
+insert into Banks (BankName,Information)
+values ('Inecobank',1885) ,('Acba',1991),('AraratBank',1992),('AEB',1911)
 
 CREATE TABLE Users
 (
